@@ -1,308 +1,252 @@
-:root {
-  --ink: #16181f;
-  --muted: #8a8d96;
-  --dark: #3b3e49;
-  --line: #e7e8ec
-}
-
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
 }
 
-/* Sign in */
 body {
-  color: var(--ink);
-  min-height: 100vh;
-  padding: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #c3cad8 0%, #aeb6c8 100%);
+    font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    color: #16181f;
+    min-height: 100vh;
+    padding: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #c3cad8 0%, #aeb6c8 100%);
 }
 
-/* ---------- Stage ---------- */
-.stage{
-  position: relative;
-  width: 100%;
-  max-width: 922px;
-  min-height: 694px;
-  border-radius: 24px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 56px;
-  /* cloudy sky */
-  background:
-    radial-gradient(ellipse 60% 55% at 12% 12%, #c2c9d6 0%, rgba(194, 201, 214, 0) 70%),
-    radial-gradient(ellipse 50% 40% at 35% 90%, #e3e7ee 0%, rgba(227, 231, 238, 0) 70%),
-    linear-gradient(135deg, #d2d7e1 0%, #f4f5f8 55%, #fff 100%);
-  box-shadow: 0 18px 40px rgba(40, 50, 80, .18);
+/* ---------- Stage: sky colour behind + photo on top ---------- */
+.stage {
+    position: relative;
+    width: 100%;
+    max-width: 922px;
+    min-height: 694px;
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 56px;
+    background: linear-gradient(135deg, #d2d7e1 0%, #f4f5f8 55%, #fff 100%);
+    box-shadow: 0 18px 40px rgba(40, 50, 80, .18);
 }
 
+.stage.tall {
+    min-height: 820px;
+    padding-top: 100px;
+    padding-bottom: 60px
+}
+
+/* Photo always fills the whole stage, on any page height */
 .bg {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: auto;
-  max-width: none;
-  /* fade the photo into the sky on its left edge */
-  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 22%);
-  mask-image: linear-gradient(90deg, transparent 0, #000 22%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    /* bottom-left corner fades into the light sky */
+    mask-image: linear-gradient(45deg, transparent 0, #000 24%);
 }
 
-/* ---------- Logo ---------- */
+/* ---------- Brand ---------- */
 .brand {
-  position: absolute;
-  top: 38px;
-  left: 56px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  color: #2b3040;
-  z-index: 2
+    position: absolute;
+    top: 38px;
+    left: 56px;
+    z-index: 2;
+    font-size: 22px;
+    font-weight: 600;
+    color: #2b3040;
+    text-decoration: none
 }
 
-.brand-text {
-  display: flex;
-  flex-direction: column;
-  font-size: 23px;
-  font-weight: bold;
-  letter-spacing: .5px;
-  line-height: 1
-}
-
-.brand-text small {
-  font-size: 7.5px;
-  letter-spacing: 4.4px;
-  margin-top: 3px;
-  font-weight: 400
-}
-
-/* ---------- Login ---------- */
+/* ---------- Card ---------- */
 .login {
-  position: relative;
-  z-index: 1;
-  width: 338px
+    position: relative;
+    z-index: 1;
+    width: 338px
 }
 
 .card {
-  background: #fff;
-  border-radius: 28px;
-  padding: 30px 34px 34px;
-  box-shadow: 0 8px 28px rgba(60, 70, 100, .1);
+    background: #fff;
+    border-radius: 28px;
+    padding: 30px 34px 34px;
+    box-shadow: 0 8px 28px rgba(60, 70, 100, .15)
+}
+
+.card.compact {
+    padding: 26px 34px 30px
 }
 
 h1 {
-  text-align: center;
-  font-size: 19px;
-  font-weight: 500
+    text-align: center;
+    font-size: 19px;
+    font-weight: 500
 }
 
 .sub {
-  text-align: center;
-  font-size: 11px;
-  color: var(--muted);
-  margin: 2px 0 22px
+    text-align: center;
+    font-size: 11px;
+    color: #8a8d96;
+    margin: 2px 0 22px
+}
+
+.compact .sub {
+    margin-bottom: 18px
 }
 
 label {
-  display: block;
-  font-size: 11px;
-  color: var(--muted);
-  margin-bottom: 6px
+    display: block;
+    font-size: 11px;
+    color: #8a8d96;
+    margin-bottom: 6px
 }
 
 input {
-  width: 100%;
-  height: 36px;
-  padding: 0 14px;
-  margin-bottom: 20px;
-  font: inherit;
-  font-size: 12px;
-  color: var(--ink);
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, .05);
-  outline: none;
+    width: 100%;
+    height: 36px;
+    padding: 0 14px;
+    margin-bottom: 20px;
+    font: inherit;
+    font-size: 12px;
+    color: #16181f;
+    background: #fff;
+    border: 1px solid #e7e8ec;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .05);
+    outline: none;
+}
+
+.compact input {
+    margin-bottom: 14px
 }
 
 input::placeholder {
-  color: #b3b5bb
+    color: #b3b5bb
 }
 
 input:focus {
-  border-color: #8f95a6;
-  box-shadow: 0 0 0 3px rgba(59, 62, 73, .12)
+    border-color: #8f95a6;
+    box-shadow: 0 0 0 3px rgba(59, 62, 73, .12)
+}
+
+.compact input:user-invalid {
+    border-color: #d9534f
 }
 
 .forgot {
-  display: block;
-  text-align: right;
-  font-size: 11px;
-  color: var(--ink);
-  margin: -4px 0 22px
+    display: block;
+    text-align: right;
+    font-size: 11px;
+    color: #16181f;
+    margin: -4px 0 22px
+}
+
+.terms {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin: 2px 0 18px;
+    font-size: 11px;
+    color: #8a8d96;
+    line-height: 1.4;
+    cursor: pointer
+}
+
+.terms input {
+    width: 14px;
+    height: 14px;
+    margin: 2px 0 0;
+    padding: 0;
+    box-shadow: none;
+    accent-color: #3b3e49;
+    flex: none
 }
 
 button {
-  width: 100%;
-  height: 42px;
-  border: 0;
-  border-radius: 6px;
-  cursor: pointer;
-  background: var(--dark);
-  color: #fff;
-  font: inherit;
-  font-size: 12px;
-  font-weight: 400;
-  transition: background .15s;
+    width: 100%;
+    height: 42px;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #3b3e49;
+    color: #fff;
+    font: inherit;
+    font-size: 12px;
 }
 
 button:hover {
-  background: #2c2f39
+    background: #2c2f39
 }
 
 button:focus-visible,
 a:focus-visible {
-  outline: 2px solid #3b3e49;
-  outline-offset: 2px
-}
-
-.new {
-  text-align: center;
-  font-size: 11px;
-  color: white;
-  margin-top: 26px;
-  font-weight: 500;
-}
-
-.new a {
-  color: white;
-  font-weight: 800;
+    outline: 2px solid #3b3e49;
+    outline-offset: 2px
 }
 
 a {
-  color: inherit
+    color: inherit
+}
+
+/* text under the card sits on the photo, so it is white */
+.new {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 500;
+    color: #fff;
+    margin-top: 22px;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, .6)
+}
+
+.new a {
+    color: #fff
 }
 
 /* ---------- Responsive ---------- */
 @media (max-width:900px) {
-  body {
-    padding: 20px
-  }
+    body {
+        padding: 20px
+    }
 
-  .stage {
-    align-items: center;
-    padding: 110px 24px 48px;
-    min-height: calc(100vh - 40px)
-  }
+    .stage,
+    .stage.tall {
+        align-items: center;
+        padding: 100px 24px 48px;
+        min-height: 90vh
+    }
 
-  .bg {
-    opacity: .55
-  }
+    .brand {
+        left: 24px;
+        top: 30px
+    }
 
-  .brand {
-    left: 24px;
-    top: 30px
-  }
-
-  .login {
-    width: 100%;
-    max-width: 380px
-  }
+    .login {
+        width: 100%;
+        max-width: 380px
+    }
 }
 
 @media (max-width:480px) {
-  body {
-    padding: 0
-  }
+    body {
+        padding: 0
+    }
 
-  .stage {
-    border-radius: 0;
-    min-height: 100vh;
-    box-shadow: none;
-    padding: 100px 16px 40px
-  }
+    .stage,
+    .stage.tall {
+        border-radius: 0;
+        min-height: 100vh;
+        box-shadow: none;
+        padding: 90px 16px 40px
+    }
 
-  .card {
-    padding: 26px 22px 28px
-  }
+    .card {
+        padding: 26px 22px 28px
+    }
 
-  input {
-    font-size: 16px
-  }
-}
-
-/* Sign In end */
-
-/* ---------- Sign up page ---------- */
-.stage.tall {
-  min-height: 800px;
-  padding-top: 110px;
-  padding-bottom: 48px;
-  background:
-    radial-gradient(ellipse 60% 55% at 12% 12%, #c2c9d6 0%, rgba(194, 201, 214, 0) 70%),
-    radial-gradient(ellipse 50% 40% at 35% 90%, #e3e7ee 0%, rgba(227, 231, 238, 0) 70%),
-    linear-gradient(135deg, #d2d7e1 0%, #f4f5f8 55%, #fff 100%);
-  box-shadow: 0 18px 40px rgba(40, 50, 80, .18);
-}
-
-.card.compact {
-  padding: 26px 34px 30px;
-}
-
-.card.compact .sub {
-  margin-bottom: 18px;
-}
-
-.card.compact input {
-  margin-bottom: 14px;
-}
-
-.card.compact input:user-invalid {
-  border-color: #d9534f;
-}
-
-.terms {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  margin: 2px 0 18px;
-  font-size: 11px;
-  color: #8a8d96;
-  line-height: 1.4;
-  cursor: pointer;
-}
-
-.terms input {
-  width: 14px;
-  height: 14px;
-  margin: 2px 0 0;
-  padding: 0;
-  box-shadow: none;
-  accent-color: #3b3e49;
-  flex: none;
-}
-
-.terms a {
-  color: #16181f
-}
-
-@media (max-width:900px) {
-  .stage.tall {
-    min-height: 90vh;
-    padding-top: 110px;
-  }
-}
-
-@media (max-width:480px) {
-  .stage.tall {
-    padding-top: 100px;
-  }
+    input {
+        font-size: 16px
+    }
 }
