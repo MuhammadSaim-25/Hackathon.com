@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Dashboard · HCM Lite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="ad-body">
+    <aside class="ad-side">
+        <a class="ad-logo" href="admin.html">HCM Lite</a>
+        <nav class="ad-nav">
+            <a class="is-active" href="admin.html"><img src="../images/icons/dashboard.svg"
+                    alt=""><span>Dashboard</span></a>
+            <a href="employees.html"><img src="../images/icons/employees.svg" alt=""><span>Employees</span></a>
+            <a href="leaves.html"><img src="../images/icons/leaves.svg" alt=""><span>Leave requests</span></a>
+            <a href="settings.html"><img src="../images/icons/settings.svg" alt=""><span>Settings</span></a>
+            <a href="payslip.html"><img src="../images/icons/payslip.svg" alt=""><span>Payslips</span></a>
+        </nav>
+        <div class="ad-side-foot ad-nav">
+            <div class="ad-user"><b>Admin</b>Administrator</div>
+            <button type="button" popovertarget="pwPopover"><img src="../images/icons/key.svg"
+                    alt=""><span>Password</span></button>
+            <a href="../index.html"><img src="../images/icons/logout.svg" alt=""><span>Log out</span></a>
+        </div>
+    </aside>
+
+    <main class="ad-main">
+        <header class="ad-head">
+            <h1 class="ad-title">Dashboard</h1>
+            <p>HCM Lite · Company overview</p>
+        </header>
+
+        <section class="ad-stats" aria-label="Company totals">
+            <div class="ad-stat"><b>24</b><span>Employees</span></div>
+            <div class="ad-stat ad-stat--present"><b>16</b><span>Present today</span></div>
+            <div class="ad-stat ad-stat--late"><b>3</b><span>Late today</span></div>
+            <div class="ad-stat ad-stat--leave"><b>3</b><span>On leave today</span></div>
+            <div class="ad-stat ad-stat--absent"><b>2</b><span>Absent today</span></div>
+            <div class="ad-stat"><b>3</b><span>Pending leaves</span></div>
+        </section>
+
+        <div class="ad-grid">
+            <section class="ad-panel">
+                <h2 class="ad-panel-title">Weekly attendance <span class="ad-note">Mon – Fri · 24 employees</span></h2>
+                <div class="ad-bars" role="img"
+                    aria-label="Stacked bars of present, late, on leave and absent employees for each weekday">
+                    <div class="ad-bar"><div class="ad-bar-stack">
+                            <i class="ad-seg ad-seg--present" style="flex:16" title="Present 16"></i>
+                            <i class="ad-seg ad-seg--late" style="flex:3" title="Late 3"></i>
+                            <i class="ad-seg ad-seg--leave" style="flex:3" title="On leave 3"></i>
+                            <i class="ad-seg ad-seg--absent" style="flex:2" title="Absent 2"></i>
+                        </div><span>Mon</span></div>
+                    <div class="ad-bar"><div class="ad-bar-stack">
+                            <i class="ad-seg ad-seg--present" style="flex:18" title="Present 18"></i>
+                            <i class="ad-seg ad-seg--late" style="flex:2" title="Late 2"></i>
+                            <i class="ad-seg ad-seg--leave" style="flex:2" title="On leave 2"></i>
+                            <i class="ad-seg ad-seg--absent" style="flex:2" title="Absent 2"></i>
+                        </div><span>Tue</span></div>
+                    <div class="ad-bar"><div class="ad-bar-stack">
+                            <i class="ad-seg ad-seg--present" style="flex:17" title="Present 17"></i>
+                            <i class="ad-seg ad-seg--late" style="flex:3" title="Late 3"></i>
+                            <i class="ad-seg ad-seg--leave" style="flex:2" title="On leave 2"></i>
+                            <i class="ad-seg ad-seg--absent" style="flex:2" title="Absent 2"></i>
+                        </div><span>Wed</span></div>
+                    <div class="ad-bar"><div class="ad-bar-stack">
+                            <i class="ad-seg ad-seg--present" style="flex:19" title="Present 19"></i>
+                            <i class="ad-seg ad-seg--late" style="flex:1" title="Late 1"></i>
+                            <i class="ad-seg ad-seg--leave" style="flex:3" title="On leave 3"></i>
+                            <i class="ad-seg ad-seg--absent" style="flex:1" title="Absent 1"></i>
+                        </div><span>Thu</span></div>
+                    <div class="ad-bar"><div class="ad-bar-stack">
+                            <i class="ad-seg ad-seg--present" style="flex:15" title="Present 15"></i>
+                            <i class="ad-seg ad-seg--late" style="flex:4" title="Late 4"></i>
+                            <i class="ad-seg ad-seg--leave" style="flex:3" title="On leave 3"></i>
+                            <i class="ad-seg ad-seg--absent" style="flex:2" title="Absent 2"></i>
+                        </div><span>Fri</span></div>
+                </div>
+                <ul class="ad-legend ad-legend--inline">
+                    <li class="ad-seg--present">Present</li>
+                    <li class="ad-seg--late">Late</li>
+                    <li class="ad-seg--leave">On leave</li>
+                    <li class="ad-seg--absent">Absent</li>
+                </ul>
+            </section>
+
+            <section class="ad-panel">
+                <h2 class="ad-panel-title">Today's split</h2>
+                <div class="ad-donut-box">
+                    <div class="ad-donut" role="img"
+                        aria-label="Today: 16 present, 3 late, 3 on leave, 2 absent out of 24">
+                        <div class="ad-donut-hole"><b>24</b><span>Employees</span></div>
+                    </div>
+                    <ul class="ad-legend">
+                        <li class="ad-seg--present">Present <b>16</b></li>
+                        <li class="ad-seg--late">Late <b>3</b></li>
+                        <li class="ad-seg--leave">On leave <b>3</b></li>
+                        <li class="ad-seg--absent">Absent <b>2</b></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <div class="ad-grid">
+            <section class="ad-panel">
+                <h2 class="ad-panel-title">Today's attendance <a href="employees.html">View employees</a></h2>
+                <div class="ad-table-scroll">
+                    <table class="ad-table">
+                        <thead>
+                            <tr>
+                                <th>Employee</th>
+                                <th>Check-in</th>
+                                <th>Check-out</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Ayesha Khan<small>Engineering</small></td>
+                                <td>08:52</td>
+                                <td>17:34</td>
+                                <td><span class="ad-badge ad-badge--present">Present</span></td>
+                            </tr>
+                            <tr>
+                                <td>Bilal Ahmed<small>Sales</small></td>
+                                <td>09:41</td>
+                                <td>17:45</td>
+                                <td><span class="ad-badge ad-badge--late">Late</span></td>
+                            </tr>
+                            <tr>
+                                <td>Sara Malik<small>Finance</small></td>
+                                <td>08:47</td>
+                                <td>—</td>
+                                <td><span class="ad-badge ad-badge--present">Present</span></td>
+                            </tr>
+                            <tr>
+                                <td>Hamza Ali<small>Design</small></td>
+                                <td>—</td>
+                                <td>—</td>
+                                <td><span class="ad-badge ad-badge--leave">On leave</span></td>
+                            </tr>
+                            <tr>
+                                <td>Fatima Noor<small>HR</small></td>
+                                <td>09:12</td>
+                                <td>13:05</td>
+                                <td><span class="ad-badge ad-badge--half">Half day</span></td>
+                            </tr>
+                            <tr>
+                                <td>Usman Raza<small>Support</small></td>
+                                <td>—</td>
+                                <td>—</td>
+                                <td><span class="ad-badge ad-badge--none">Absent</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="ad-panel">
+                <h2 class="ad-panel-title">Pending leaves <a href="leaves.html">Review all</a></h2>
+                <ul class="ad-list">
+                    <li>Zainab Siddiqui<span>Sick leave · 2 days</span></li>
+                    <li>Omar Farooq<span>Annual leave · 5 days</span></li>
+                    <li>Hira Tariq<span>Casual leave · 1 day</span></li>
+                </ul>
+            </section>
+        </div>
+
+        <div class="ad-grid">
+            <section class="ad-panel">
+                <h2 class="ad-panel-title">Smart helper</h2>
+                <div class="ad-chat">
+                    <div class="ad-msg ad-msg--bot">Hi! Ask me about your company's HR data.</div>
+                    <div class="ad-msg ad-msg--me">Who was late today?</div>
+                    <div class="ad-msg ad-msg--bot">3 people were late today: Bilal Ahmed, Nida Hassan and Kamran Sheikh.</div>
+                </div>
+                <div>
+                    <button class="ad-chip" type="button">How many employees do we have?</button>
+                    <button class="ad-chip" type="button">Who is on leave today?</button>
+                    <button class="ad-chip" type="button">Who was late today?</button>
+                </div>
+                <form class="ad-form-row" action="#">
+                    <input class="ad-field" type="text" placeholder="Type a question" autocomplete="off">
+                    <button class="ad-btn" type="submit"><img src="../images/icons/send.svg" alt="">Ask</button>
+                </form>
+            </section>
+
+            <section class="ad-panel">
+                <h2 class="ad-panel-title">Announcements</h2>
+                <form class="ad-form-row" action="#">
+                    <input class="ad-field" type="text" placeholder="Write an announcement" autocomplete="off"
+                        required>
+                    <button class="ad-btn" type="submit">Post</button>
+                </form>
+                <ul class="ad-list">
+                    <li>Office will close early on Friday at 3:00 PM.<span>Posted today</span></li>
+                    <li>Monthly payslips are now available.<span>Posted 2 days ago</span></li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <!-- Change password (opens with the HTML popover attribute, no script needed) -->
+    <div class="ad-dialog" id="pwPopover" popover>
+        <form action="#" method="post">
+            <h2>Change password</h2>
+            <label for="pwOld">Current password</label>
+            <input class="ad-field" type="password" id="pwOld" required>
+            <label for="pwNew">New password (min 4 characters)</label>
+            <input class="ad-field" type="password" id="pwNew" minlength="4" required>
+            <div class="ad-form-row">
+                <button class="ad-btn ad-btn--light" type="button" popovertarget="pwPopover"
+                    popovertargetaction="hide">Cancel</button>
+                <button class="ad-btn" type="submit">Save password</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

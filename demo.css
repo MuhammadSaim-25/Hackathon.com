@@ -1,0 +1,846 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    color: #16181f;
+    min-height: 100vh;
+    padding: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #c3cad8 0%, #aeb6c8 100%);
+}
+
+/* ---------- Stage: sky colour behind + photo on top ---------- */
+.stage {
+    position: relative;
+    width: 100%;
+    max-width: 922px;
+    min-height: 694px;
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 56px;
+    background: linear-gradient(135deg, #d2d7e1 0%, #f4f5f8 55%, #fff 100%);
+    box-shadow: 0 18px 40px rgba(40, 50, 80, .18);
+}
+
+.stage.tall {
+    min-height: 820px;
+    padding-top: 100px;
+    padding-bottom: 60px
+}
+
+/* Photo always fills the whole stage, on any page height */
+.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    /* bottom-left corner fades into the light sky */
+    mask-image: linear-gradient(45deg, transparent 0, #000 24%);
+}
+
+/* ---------- Brand ---------- */
+.brand {
+    position: absolute;
+    top: 38px;
+    left: 56px;
+    z-index: 2;
+    font-size: 22px;
+    font-weight: 600;
+    color: #2b3040;
+    text-decoration: none
+}
+
+/* ---------- Card ---------- */
+.login {
+    position: relative;
+    z-index: 1;
+    width: 338px
+}
+
+.card {
+    background: #fff;
+    border-radius: 28px;
+    padding: 30px 34px 34px;
+    box-shadow: 0 8px 28px rgba(60, 70, 100, .15)
+}
+
+.card.compact {
+    padding: 26px 34px 30px
+}
+
+h1 {
+    text-align: center;
+    font-size: 19px;
+    font-weight: 500
+}
+
+.sub {
+    text-align: center;
+    font-size: 11px;
+    color: #8a8d96;
+    margin: 2px 0 22px
+}
+
+.compact .sub {
+    margin-bottom: 18px
+}
+
+label {
+    display: block;
+    font-size: 11px;
+    color: #8a8d96;
+    margin-bottom: 6px
+}
+
+input {
+    width: 100%;
+    height: 36px;
+    padding: 0 14px;
+    margin-bottom: 20px;
+    font: inherit;
+    font-size: 12px;
+    color: #16181f;
+    background: #fff;
+    border: 1px solid #e7e8ec;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .05);
+    outline: none;
+}
+
+.compact input {
+    margin-bottom: 14px
+}
+
+input::placeholder {
+    color: #b3b5bb
+}
+
+input:focus {
+    border-color: #8f95a6;
+    box-shadow: 0 0 0 3px rgba(59, 62, 73, .12)
+}
+
+.compact input:user-invalid {
+    border-color: #d9534f
+}
+
+.forgot {
+    display: block;
+    text-align: right;
+    font-size: 11px;
+    color: #16181f;
+    margin: -4px 0 22px
+}
+
+.terms {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin: 2px 0 18px;
+    font-size: 11px;
+    color: #8a8d96;
+    line-height: 1.4;
+    cursor: pointer
+}
+
+.terms input {
+    width: 14px;
+    height: 14px;
+    margin: 2px 0 0;
+    padding: 0;
+    box-shadow: none;
+    accent-color: #3b3e49;
+    flex: none
+}
+
+button {
+    width: 100%;
+    height: 42px;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #3b3e49;
+    color: #fff;
+    font: inherit;
+    font-size: 12px;
+}
+
+button:hover {
+    background: #2c2f39
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid #3b3e49;
+    outline-offset: 2px
+}
+
+a {
+    color: inherit
+}
+
+/* text under the card sits on the photo, so it is white */
+.new {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 500;
+    color: #fff;
+    margin-top: 22px;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, .6)
+}
+
+.new a {
+    color: #fff
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width:900px) {
+    body {
+        padding: 20px
+    }
+
+    .stage,
+    .stage.tall {
+        align-items: center;
+        padding: 100px 24px 48px;
+        min-height: 90vh
+    }
+
+    .brand {
+        left: 24px;
+        top: 30px
+    }
+
+    .login {
+        width: 100%;
+        max-width: 380px
+    }
+}
+
+@media (max-width:480px) {
+    body {
+        padding: 0
+    }
+
+    .stage,
+    .stage.tall {
+        border-radius: 0;
+        min-height: 100vh;
+        box-shadow: none;
+        padding: 90px 16px 40px
+    }
+
+    .card {
+        padding: 26px 22px 28px
+    }
+
+    input {
+        font-size: 16px
+    }
+}
+/* Signup Page */
+
+
+/* =========================================================
+   ADMIN DASHBOARD  (all classes prefixed "ad-")
+   Add class="ad-body" to the <body> of the admin pages.
+   Rules below override the global body/input/button/h1/label
+   styles above, only for admin elements.
+   ========================================================= */
+
+:root {
+    --ad-ink: #16181f;
+    --ad-muted: #8a8d96;
+    --ad-brand: #2b3040;
+    --ad-dark: #3b3e49;
+    --ad-dark-hover: #2c2f39;
+    --ad-border: #e7e8ec;
+    --ad-soft: #f1f2f6;
+    --ad-card-shadow: 0 8px 28px rgba(60, 70, 100, .15);
+}
+
+/* undo the login page's centred, padded body */
+.ad-body {
+    display: block;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #c3cad8 0%, #aeb6c8 100%) fixed;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+}
+
+.ad-body ul {
+    list-style: none
+}
+
+.ad-body img {
+    max-width: 100%
+}
+
+/* ---------- Sidebar ---------- */
+.ad-side {
+    position: fixed;
+    top: 16px;
+    bottom: 16px;
+    left: 16px;
+    width: 232px;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 14px;
+    background: var(--ad-dark);
+    color: #e8eaf0;
+    border-radius: 28px;
+    box-shadow: 0 18px 40px rgba(40, 50, 80, .18);
+    overflow-y: auto;
+}
+
+.ad-logo {
+    padding: 0 12px 24px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+}
+
+.ad-nav a,
+.ad-nav button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 4px;
+    padding: 11px 12px;
+    border: 0;
+    border-radius: 10px;
+    background: none;
+    color: #cfd3de;
+    font: inherit;
+    font-size: 13px;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.ad-nav a:hover,
+.ad-nav button:hover {
+    background: rgba(255, 255, 255, .08)
+}
+
+.ad-nav a.is-active {
+    background: #fff;
+    color: var(--ad-ink);
+    font-weight: 500
+}
+
+.ad-nav a.is-active img {
+    filter: invert(1)
+}
+
+.ad-nav img {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0
+}
+
+.ad-side-foot {
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, .14);
+}
+
+.ad-user {
+    padding: 0 12px 10px;
+    font-size: 12px;
+    color: #aab0bf
+}
+
+.ad-user b {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff
+}
+
+/* ---------- Main area ---------- */
+.ad-main {
+    margin-left: 264px;
+    padding: 28px 32px 48px;
+    min-width: 0;
+}
+
+.ad-head {
+    margin-bottom: 24px
+}
+
+.ad-title {
+    text-align: left;
+    font-size: clamp(20px, 2.4vw, 24px);
+    font-weight: 500;
+    color: var(--ad-brand);
+}
+
+.ad-head p {
+    margin-top: 2px;
+    font-size: 12px;
+    color: #5a5f70
+}
+
+/* ---------- Stat cards ---------- */
+.ad-stats {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.ad-stat {
+    padding: 18px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: var(--ad-card-shadow);
+}
+
+.ad-stat b {
+    display: block;
+    font-size: clamp(24px, 3vw, 30px);
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.ad-stat span {
+    font-size: 11px;
+    color: var(--ad-muted)
+}
+
+.ad-stat--present b {
+    color: #1f9d84
+}
+
+.ad-stat--late b {
+    color: #d98a1c
+}
+
+.ad-stat--leave b {
+    color: #5b4fcf
+}
+
+/* ---------- Panels ---------- */
+.ad-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+.ad-panel {
+    min-width: 0;
+    padding: 26px 28px 28px;
+    background: #fff;
+    border-radius: 28px;
+    box-shadow: var(--ad-card-shadow);
+}
+
+.ad-panel-title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 16px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.ad-panel-title a {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--ad-ink)
+}
+
+/* ---------- Table ---------- */
+.ad-table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch
+}
+
+.ad-table {
+    width: 100%;
+    min-width: 440px;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.ad-table th {
+    padding: 0 8px 10px;
+    font-size: 11px;
+    font-weight: 400;
+    text-align: left;
+    color: var(--ad-muted);
+    white-space: nowrap;
+}
+
+.ad-table td {
+    padding: 10px 8px;
+    border-top: 1px solid var(--ad-border)
+}
+
+.ad-table small,
+.ad-list small {
+    display: block;
+    font-size: 11px;
+    color: var(--ad-muted)
+}
+
+/* ---------- Status badges ---------- */
+.ad-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 99px;
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.ad-badge--present {
+    background: #dff3ee;
+    color: #17806b
+}
+
+.ad-badge--late {
+    background: #fcecd2;
+    color: #a8620c
+}
+
+.ad-badge--half {
+    background: #e2e8fb;
+    color: #3c4fa8
+}
+
+.ad-badge--leave {
+    background: #e8e5fa;
+    color: #4a3fb8
+}
+
+.ad-badge--none {
+    background: var(--ad-soft);
+    color: #6b7080
+}
+
+/* ---------- Lists ---------- */
+.ad-empty {
+    padding: 14px 0;
+    font-size: 12px;
+    text-align: center;
+    color: var(--ad-muted);
+}
+
+.ad-list li {
+    padding: 10px 0;
+    border-top: 1px solid var(--ad-border);
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.ad-list li:first-child {
+    border-top: 0
+}
+
+/* ---------- Smart helper chat ---------- */
+.ad-chat {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: clamp(180px, 30vh, 250px);
+    margin-bottom: 10px;
+    overflow-y: auto;
+}
+
+.ad-msg {
+    max-width: 88%;
+    padding: 9px 13px;
+    border-radius: 14px;
+    font-size: 12px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.ad-msg--bot {
+    background: var(--ad-soft)
+}
+
+.ad-msg--me {
+    align-self: flex-end;
+    background: var(--ad-dark);
+    color: #fff
+}
+
+.ad-chip {
+    width: auto;
+    height: auto;
+    margin: 0 6px 8px 0;
+    padding: 5px 11px;
+    border: 1px solid #dfe2ea;
+    border-radius: 99px;
+    background: #fff;
+    color: var(--ad-ink);
+    font: inherit;
+    font-size: 11px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.ad-chip:hover {
+    background: var(--ad-soft)
+}
+
+/* ---------- Forms & buttons ---------- */
+.ad-form-row {
+    display: flex;
+    gap: 8px
+}
+
+.ad-field {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    height: 36px;
+    margin-bottom: 0;
+}
+
+.ad-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex-shrink: 0;
+    width: auto;
+    height: 36px;
+    padding: 0 18px;
+}
+
+.ad-btn--light {
+    background: var(--ad-soft);
+    color: var(--ad-ink)
+}
+
+.ad-btn--light:hover {
+    background: #e4e6ec
+}
+
+.ad-btn img {
+    width: 15px;
+    height: 15px
+}
+
+/* ---------- Change-password dialog ---------- */
+.ad-dialog {
+    width: min(360px, 92vw);
+    max-height: 92vh;
+    margin: auto;
+    padding: 30px 34px 34px;
+    border: 0;
+    border-radius: 28px;
+    overflow-y: auto;
+    box-shadow: 0 20px 50px rgba(30, 40, 70, .3);
+}
+
+.ad-dialog::backdrop {
+    background: rgba(30, 35, 50, .45)
+}
+
+.ad-dialog h2 {
+    margin-bottom: 14px;
+    font-size: 19px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.ad-dialog label {
+    margin: 12px 0 6px
+}
+
+.ad-dialog .ad-form-row {
+    justify-content: flex-end;
+    margin-top: 20px
+}
+
+/* ---------- Admin responsive ---------- */
+@media (max-width:1200px) {
+    .ad-main {
+        padding: 24px 24px 40px
+    }
+
+    .ad-stats {
+        grid-template-columns: repeat(3, minmax(0, 1fr))
+    }
+}
+
+/* Tablet: sidebar turns into a top bar */
+@media (max-width:900px) {
+    .ad-body {
+        padding: 0
+    }
+
+    .ad-side {
+        position: static;
+        width: auto;
+        margin: 12px;
+        padding: 12px 14px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 6px;
+        border-radius: 22px;
+        overflow: visible;
+    }
+
+    .ad-logo {
+        padding: 0 10px 0 4px;
+        font-size: 20px
+    }
+
+    .ad-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2px
+    }
+
+    .ad-nav a,
+    .ad-nav button {
+        width: auto;
+        min-height: 40px;
+        margin: 0;
+        padding: 10px 12px
+    }
+
+    .ad-side-foot {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        margin: 0 0 0 auto;
+        padding: 0;
+        border: 0;
+    }
+
+    .ad-user {
+        display: none
+    }
+
+    .ad-main {
+        margin-left: 0;
+        padding: 12px 16px 40px
+    }
+
+    .ad-head {
+        margin-bottom: 18px
+    }
+
+    .ad-grid {
+        grid-template-columns: minmax(0, 1fr)
+    }
+}
+
+/* Phone */
+@media (max-width:560px) {
+    .ad-side {
+        margin: 8px;
+        padding: 10px;
+        gap: 4px
+    }
+
+    .ad-logo {
+        width: 100%;
+        padding: 2px 6px 6px
+    }
+
+    .ad-nav {
+        flex: 1;
+        flex-wrap: nowrap;
+        justify-content: space-between
+    }
+
+    .ad-nav a span,
+    .ad-nav button span {
+        display: none
+    }
+
+    .ad-nav a,
+    .ad-nav button {
+        justify-content: center;
+        min-width: 44px;
+        padding: 10px
+    }
+
+    .ad-nav img {
+        width: 20px;
+        height: 20px
+    }
+
+    .ad-side-foot {
+        margin: 0
+    }
+
+    .ad-main {
+        padding: 8px 12px 32px
+    }
+
+    .ad-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px
+    }
+
+    .ad-stat:last-child:nth-child(odd) {
+        grid-column: 1 / -1
+    }
+
+    .ad-stat {
+        padding: 14px;
+        border-radius: 16px
+    }
+
+    .ad-panel {
+        padding: 20px 18px 22px;
+        border-radius: 22px
+    }
+
+    .ad-grid {
+        gap: 12px;
+        margin-bottom: 12px
+    }
+
+    .ad-field {
+        height: 44px;
+        font-size: 16px
+    }
+
+    .ad-btn {
+        height: 44px
+    }
+
+    .ad-dialog {
+        padding: 24px 22px 26px
+    }
+
+    .ad-dialog .ad-form-row .ad-btn {
+        flex: 1
+    }
+}
+
+@media (max-width:360px) {
+    .ad-stats {
+        grid-template-columns: minmax(0, 1fr)
+    }
+}
