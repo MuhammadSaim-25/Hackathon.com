@@ -1,0 +1,236 @@
+:root {
+  --ink: #16181f;
+  --muted: #8a8d96;
+  --dark: #3b3e49;
+  --line: #e7e8ec
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0
+}
+
+body {
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: var(--ink);
+  min-height: 100vh;
+  padding: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #c3cad8 0%, #aeb6c8 100%);
+}
+
+/* ---------- Stage ---------- */
+.stage {
+  position: relative;
+  width: 100%;
+  max-width: 922px;
+  min-height: 694px;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 56px;
+  /* cloudy sky */
+  background:
+    radial-gradient(ellipse 60% 55% at 12% 12%, #c2c9d6 0%, rgba(194, 201, 214, 0) 70%),
+    radial-gradient(ellipse 50% 40% at 35% 90%, #e3e7ee 0%, rgba(227, 231, 238, 0) 70%),
+    linear-gradient(135deg, #d2d7e1 0%, #f4f5f8 55%, #fff 100%);
+  box-shadow: 0 18px 40px rgba(40, 50, 80, .18);
+}
+
+.bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: auto;
+  max-width: none;
+  /* fade the photo into the sky on its left edge */
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 22%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 22%);
+}
+
+/* ---------- Logo ---------- */
+.brand {
+  position: absolute;
+  top: 38px;
+  left: 56px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #2b3040;
+  z-index: 2
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 23px;
+  font-weight: bold;
+  letter-spacing: .5px;
+  line-height: 1
+}
+
+.brand-text small {
+  font-size: 7.5px;
+  letter-spacing: 4.4px;
+  margin-top: 3px;
+  font-weight: 400
+}
+
+/* ---------- Login ---------- */
+.login {
+  position: relative;
+  z-index: 1;
+  width: 338px
+}
+
+.card {
+  background: #fff;
+  border-radius: 28px;
+  padding: 30px 34px 34px;
+  box-shadow: 0 8px 28px rgba(60, 70, 100, .1);
+}
+
+h1 {
+  text-align: center;
+  font-size: 19px;
+  font-weight: 500
+}
+
+.sub {
+  text-align: center;
+  font-size: 11px;
+  color: var(--muted);
+  margin: 2px 0 22px
+}
+
+label {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 6px
+}
+
+input {
+  width: 100%;
+  height: 36px;
+  padding: 0 14px;
+  margin-bottom: 20px;
+  font: inherit;
+  font-size: 12px;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .05);
+  outline: none;
+}
+
+input::placeholder {
+  color: #b3b5bb
+}
+
+input:focus {
+  border-color: #8f95a6;
+  box-shadow: 0 0 0 3px rgba(59, 62, 73, .12)
+}
+
+.forgot {
+  display: block;
+  text-align: right;
+  font-size: 11px;
+  color: var(--ink);
+  margin: -4px 0 22px
+}
+
+button {
+  width: 100%;
+  height: 42px;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  background: var(--dark);
+  color: #fff;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 400;
+  transition: background .15s;
+}
+
+button:hover {
+  background: #2c2f39
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #3b3e49;
+  outline-offset: 2px
+}
+.new {
+  text-align: center;
+  font-size: 11px;
+  color: white;
+  margin-top: 26px
+}
+
+.new a {
+  color: white;
+}
+
+a {
+  color: inherit
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width:900px) {
+  body {
+    padding: 20px
+  }
+
+  .stage {
+    align-items: center;
+    padding: 110px 24px 48px;
+    min-height: calc(100vh - 40px)
+  }
+
+  .bg {
+    opacity: .55
+  }
+
+  .brand {
+    left: 24px;
+    top: 30px
+  }
+
+  .login {
+    width: 100%;
+    max-width: 380px
+  }
+}
+
+@media (max-width:480px) {
+  body {
+    padding: 0
+  }
+
+  .stage {
+    border-radius: 0;
+    min-height: 100vh;
+    box-shadow: none;
+    padding: 100px 16px 40px
+  }
+
+  .card {
+    padding: 26px 22px 28px
+  }
+
+  input {
+    font-size: 16px
+  }
+}
