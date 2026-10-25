@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Employees · HCM Lite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="ad-body">
+    <aside class="ad-side">
+        <a class="ad-logo" href="admin.html">HCM Lite</a>
+        <nav class="ad-nav">
+            <a href="admindashboard.html"><img src="../images/icons/dashboard.svg" alt=""><span>Dashboard</span></a>
+            <a class="is-active" href="employees.html" aria-current="page"><img src="../images/icons/employees.svg"
+                    alt=""><span>Employees</span></a>
+            <a href="leaves.html"><img src="../images/icons/leaves.svg" alt=""><span>Leave requests</span></a>
+            <a href="settings.html"><img src="../images/icons/settings.svg" alt=""><span>Settings</span></a>
+            <a href="payslip.html"><img src="../images/icons/payslip.svg" alt=""><span>Payslips</span></a>
+        </nav>
+        <div class="ad-side-foot ad-nav">
+            <div class="ad-user"><b>Admin</b>Administrator</div>
+            <button type="button" popovertarget="pwPopover"><img src="../images/icons/key.svg"
+                    alt=""><span>Password</span></button>
+            <a href="../index.html"><img src="../images/icons/logout.svg" alt=""><span>Log out</span></a>
+        </div>
+    </aside>
+
+    <main class="ad-main">
+        <header class="ad-head emp-head">
+            <div>
+                <h1 class="ad-title">Employees</h1>
+                <p><a href="admin.html">Dashboard</a> · Manage your team</p>
+            </div>
+            <button class="ad-btn" type="button" popovertarget="empPopover">+ Add employee</button>
+        </header>
+
+        <section class="ad-stats emp-stats" aria-label="Employee totals">
+            <a class="ad-stat" href="employees.html"><b>24</b><span>Total employees</span></a>
+            <div class="ad-stat ad-stat--present"><b>20</b><span>Active</span></div>
+            <a class="ad-stat ad-stat--leave" href="leaves.html"><b>3</b><span>On leave</span></a>
+            <div class="ad-stat"><b>6</b><span>Departments</span></div>
+        </section>
+
+        <section class="ad-panel">
+            <h2 class="ad-panel-title">Employee directory <a href="admin.html">Back to dashboard</a></h2>
+
+            <form class="emp-toolbar" action="employees.html" method="get">
+                <input class="ad-field emp-search" id="empSearch" name="q" type="text"
+                    placeholder="Search by name, ID or role" autocomplete="off" aria-label="Search employees">
+                <select class="ad-field emp-select" id="empDept" name="dept" aria-label="Filter by department">
+                    <option value="">All departments</option>
+                    <option value="Engineering">Engineering</option>
+                    <option value="Sales">Sales</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Design">Design</option>
+                    <option value="HR">HR</option>
+                    <option value="Support">Support</option>
+                </select>
+                <select class="ad-field emp-select" id="empStatus" name="status" aria-label="Filter by status">
+                    <option value="">All statuses</option>
+                    <option value="active">Active</option>
+                    <option value="leave">On leave</option>
+                    <option value="inactive">Inactive</option>
+                </select>
+                <button class="ad-btn" type="submit">Search</button>
+            </form>
+
+            <div class="ad-table-scroll">
+                <table class="ad-table emp-table">
+                    <thead>
+                        <tr>
+                            <th>Employee</th>
+                            <th>ID</th>
+                            <th>Department</th>
+                            <th>Role</th>
+                            <th>Joined</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="emp-person"><span class="emp-avatar emp-avatar--a">AK</span>
+                                    <div>Ayesha Khan<small>ayesha.khan@hcmlite.com</small></div>
+                                </div>
+                            </td>
+                            <td>HCM-001</td>
+                            <td>Engineering</td>
+                            <td>Senior Developer</td>
+                            <td>12 Jan 2022</td>
+                            <td><span class="ad-badge ad-badge--present">Active</span></td>
+                            <td>
+                                <div class="emp-actions"><button class="ad-btn ad-btn--light emp-btn-sm"
+                                        type="button">View</button><button class="ad-btn ad-btn--light emp-btn-sm"
+                                        type="button">Edit</button></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="emp-person"><span class="emp-avatar emp-avatar--b">BA</span>
+                                    <div>Bilal Ahmed<small>bilal.ahmed@hcmlite.com</small></div>
+                                </div>
+                            </td>
+                            <td>HCM-002</td>
+                            <td>Sales</td>
+                            <td>Account Executive</td>
+                            <td>03 Mar 2022</td>
+                            <td><span class="ad-badge ad-badge--present">Active</span></td>
+                            <td>
+                                <div class="emp-actions"><button class="ad-btn ad-btn--light emp-btn-sm"
+                                        type="button">View</button><button class="ad-btn ad-btn--light emp-btn-sm"
+                                        type="button">Edit</button></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="emp-person"><span class="emp-avatar emp-avatar--c">SM</span>
+                                    <div>Sara Malik<small>sara.malik@hcmlite.com</small></div>
+                                </div>
+                            </td>
+                            <td>HCM-003</td>
+                            <td>Finance</td>
+                            <td>Accountant</td>
+                            <td>18 Jul 2021</td>
+                            <td><span class="ad-badge ad-badge--present">Active</span></td>
+                            <td>
+                                <div class="emp-actions"><button class="ad-btn ad-btn--light emp-btn-sm"
+                                        type="button">View</button><button class="ad-btn ad-btn--light emp-btn-sm"
+                                        type="button">Edit</button></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="emp-person"><span class="emp-avatar emp-avatar--d">HA</span>
+                                    <div>Hamza Ali<small>hamza.ali@hcmlite.com</small></div>
+                                </div>
+                            </td>
+                            <td>HCM-004</td>
+                            <td>Design</td>
+                            <td>UI Designer</td>
+                            <td>05 Sep 2023</td>
+                            <td><span class="ad-badge ad-badge--leave">On leave</span></td>
+                            <td>
+                                <div class="emp-actions"><button class="ad-btn ad-btn--light emp-btn-sm"
+                                        type="button">View</button><button class="ad-btn ad-btn--light emp-btn-sm"
+                                        type="button">Edit</button></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="emp-person"><span class="emp-avatar emp-avatar--a">FN</span>
+                                    <div>Fatima Noor<small>fatima.noor@hcmlite.com</small></div>
+                                </div>
+                            </td>
+                            <td>HCM-005</td>
+                            <td>HR</td>
+                            <td>HR Officer</td>
+                            <td>21 Feb 2020</td>
+                            <td><span class="ad-badge ad-badge--present">Active</span></td>
+                            <td>
+                                <div class="emp-actions"><button class="ad-btn ad-btn--light emp-btn-sm"
+                                        type="button">View</button><button class="ad-btn ad-btn--light emp-btn-sm"
+                                        type="button">Edit</button></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="emp-person"><span class="emp-avatar emp-avatar--b">UR</span>
+                                    <div>Usman Raza<small>usman.raza@hcmlite.com</small></div>
+                                </div>
+                            </td>
+                            <td>HCM-006</td>
+                            <td>Support</td>
+                            <td>Support Lead</td>
+                            <td>09 Nov 2022</td>
+                            <td><span class="ad-badge ad-badge--none">Inactive</span></td>
+                            <td>
+                                <div class="emp-actions"><button class="ad-btn ad-btn--light emp-btn-sm"
+                                        type="button">View</button><button class="ad-btn ad-btn--light emp-btn-sm"
+                                        type="button">Edit</button></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="emp-person"><span class="emp-avatar emp-avatar--c">ZS</span>
+                                    <div>Zainab Siddiqui<small>zainab.siddiqui@hcmlite.com</small></div>
+                                </div>
+                            </td>
+                            <td>HCM-007</td>
+                            <td>Finance</td>
+                            <td>Finance Analyst</td>
+                            <td>14 Apr 2023</td>
+                            <td><span class="ad-badge ad-badge--leave">On leave</span></td>
+                            <td>
+                                <div class="emp-actions"><button class="ad-btn ad-btn--light emp-btn-sm"
+                                        type="button">View</button><button class="ad-btn ad-btn--light emp-btn-sm"
+                                        type="button">Edit</button></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="emp-person"><span class="emp-avatar emp-avatar--d">OF</span>
+                                    <div>Omar Farooq<small>omar.farooq@hcmlite.com</small></div>
+                                </div>
+                            </td>
+                            <td>HCM-008</td>
+                            <td>Support</td>
+                            <td>Support Agent</td>
+                            <td>30 Jun 2024</td>
+                            <td><span class="ad-badge ad-badge--leave">On leave</span></td>
+                            <td>
+                                <div class="emp-actions"><button class="ad-btn ad-btn--light emp-btn-sm"
+                                        type="button">View</button><button class="ad-btn ad-btn--light emp-btn-sm"
+                                        type="button">Edit</button></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="emp-pager">
+                <span>Showing <b>8</b> of 24 employees</span>
+                <div class="emp-pages">
+                    <button class="ad-btn ad-btn--light emp-btn-sm" type="button" disabled>Previous</button>
+                    <button class="ad-btn emp-btn-sm" type="button">1</button>
+                    <button class="ad-btn ad-btn--light emp-btn-sm" type="button">2</button>
+                    <button class="ad-btn ad-btn--light emp-btn-sm" type="button">3</button>
+                    <button class="ad-btn ad-btn--light emp-btn-sm" type="button">Next</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Add employee -->
+    <div class="ad-dialog emp-dialog" id="empPopover" popover>
+        <form action="#" method="post">
+            <h2>Add employee</h2>
+            <div class="emp-form-grid">
+                <div class="emp-full">
+                    <label for="empName">Full name</label>
+                    <input class="ad-field" type="text" id="empName" required>
+                </div>
+                <div class="emp-full">
+                    <label for="empEmail">Email</label>
+                    <input class="ad-field" type="email" id="empEmail" required>
+                </div>
+                <div>
+                    <label for="empDeptNew">Department</label>
+                    <select class="ad-field emp-select" id="empDeptNew" required>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Sales">Sales</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Design">Design</option>
+                        <option value="HR">HR</option>
+                        <option value="Support">Support</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="empRole">Role</label>
+                    <input class="ad-field" type="text" id="empRole" required>
+                </div>
+                <div class="emp-full">
+                    <label for="empJoin">Joining date</label>
+                    <input class="ad-field" type="date" id="empJoin" required>
+                </div>
+            </div>
+            <div class="ad-form-row">
+                <button class="ad-btn ad-btn--light" type="button" popovertarget="empPopover"
+                    popovertargetaction="hide">Cancel</button>
+                <button class="ad-btn" type="submit">Save employee</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Change password -->
+    <div class="ad-dialog" id="pwPopover" popover>
+        <form action="#" method="post">
+            <h2>Change password</h2>
+            <label for="pwOld">Current password</label>
+            <input class="ad-field" type="password" id="pwOld" required>
+            <label for="pwNew">New password (min 4 characters)</label>
+            <input class="ad-field" type="password" id="pwNew" minlength="4" required>
+            <div class="ad-form-row">
+                <button class="ad-btn ad-btn--light" type="button" popovertarget="pwPopover"
+                    popovertargetaction="hide">Cancel</button>
+                <button class="ad-btn" type="submit">Save password</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
