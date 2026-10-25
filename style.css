@@ -1061,3 +1061,160 @@ a.ad-stat:hover {
         width: 100%
     }
 }
+/* Leave Page */
+.lv-name {
+    color: var(--ad-ink);
+    text-decoration: none
+}
+ 
+.lv-name:hover {
+    text-decoration: underline
+}
+ 
+/* status tabs (plain links) */
+.lv-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px
+}
+ 
+.lv-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: 99px;
+    background: var(--ad-soft);
+    font-size: 12px;
+    text-decoration: none;
+    color: var(--ad-ink)
+}
+ 
+.lv-tab b {
+    font-weight: 500;
+    color: var(--ad-muted)
+}
+ 
+.lv-tab:hover {
+    background: #e4e6ec
+}
+ 
+.lv-tab.is-active {
+    background: var(--ad-dark);
+    color: #fff
+}
+ 
+.lv-tab.is-active b {
+    color: #cfd3de
+}
+ 
+/* table */
+.lv-table {
+    min-width: 860px
+}
+ 
+.lv-table td {
+    vertical-align: middle;
+    white-space: nowrap
+}
+ 
+.lv-done {
+    color: var(--ad-muted)
+}
+ 
+/* approve / reject */
+.lv-actions {
+    display: flex;
+    gap: 6px
+}
+ 
+.lv-btn-reject {
+    background: #fbe4e3;
+    color: #b3302c
+}
+ 
+.lv-btn-reject:hover {
+    background: #f6cfcd
+}
+ 
+/* leave type tags + shared colours */
+.lv-type {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 500
+}
+ 
+.lv-type--annual {
+    background: #e8e5fa;
+    color: #4a3fb8
+}
+ 
+.lv-type--sick {
+    background: #fbe4e3;
+    color: #b3302c
+}
+ 
+.lv-type--casual {
+    background: #fcecd2;
+    color: #a8620c
+}
+ 
+/* usage meters */
+.lv-meters {
+    display: grid;
+    gap: 18px;
+    list-style: none
+}
+ 
+.lv-meter-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 6px;
+    font-size: 12px
+}
+ 
+.lv-meter-top b {
+    font-weight: 500
+}
+ 
+.lv-meter {
+    height: 10px;
+    border-radius: 99px;
+    background: var(--ad-soft);
+    overflow: hidden
+}
+ 
+.lv-meter-bar {
+    display: block;
+    height: 100%;
+    border-radius: 99px
+}
+ 
+.lv-meter-bar.lv-type--annual {
+    background: #5b4fcf
+}
+ 
+.lv-meter-bar.lv-type--sick {
+    background: #c8433f
+}
+ 
+.lv-meter-bar.lv-type--casual {
+    background: #d98a1c
+}
+ 
+/* responsive */
+@media (max-width:560px) {
+    .lv-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 4px
+    }
+ 
+    .lv-tab {
+        flex: none
+    }
+}

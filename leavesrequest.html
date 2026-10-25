@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Leave requests · HCM Lite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="ad-body">
+    <aside class="ad-side">
+        <a class="ad-logo" href="admin.html">HCM Lite</a>
+        <nav class="ad-nav">
+            <a href="./admindashboard.html"><img src="../images/icons/dashboard.svg" alt=""><span>Dashboard</span></a>
+            <a href="./employees.html"><img src="../images/icons/employees.svg" alt=""><span>Employees</span></a>
+            <a class="is-active" href="./leavesrequest.html" aria-current="page"><img src="../images/icons/leaves.svg"
+                    alt=""><span>Leave requests</span></a>
+            <a href="settings.html"><img src="../images/icons/settings.svg" alt=""><span>Settings</span></a>
+            <a href="payslip.html"><img src="../images/icons/payslip.svg" alt=""><span>Payslips</span></a>
+        </nav>
+        <div class="ad-side-foot ad-nav">
+            <div class="ad-user"><b>Admin</b>Administrator</div>
+            <button type="button" popovertarget="pwPopover"><img src="../images/icons/key.svg"
+                    alt=""><span>Password</span></button>
+            <a href="../index.html"><img src="../images/icons/logout.svg" alt=""><span>Log out</span></a>
+        </div>
+    </aside>
+
+    <main class="ad-main">
+        <header class="ad-head emp-head">
+            <div>
+                <h1 class="ad-title">Leave requests</h1>
+                <p><a href="admin.html">Dashboard</a> · <a href="employees.html">Employees</a> · Review and manage leave</p>
+            </div>
+            <button class="ad-btn" type="button" popovertarget="lvPopover">+ Add leave</button>
+        </header>
+
+        <section class="ad-stats emp-stats" aria-label="Leave totals">
+            <a class="ad-stat ad-stat--late" href="leaves.html?status=pending"><b>3</b><span>Pending requests</span></a>
+            <a class="ad-stat ad-stat--present" href="leaves.html?status=approved"><b>12</b><span>Approved this month</span></a>
+            <a class="ad-stat ad-stat--absent" href="leaves.html?status=rejected"><b>2</b><span>Rejected this month</span></a>
+            <a class="ad-stat ad-stat--leave" href="employees.html"><b>3</b><span>On leave today</span></a>
+        </section>
+
+        <section class="ad-panel">
+            <h2 class="ad-panel-title">All requests <a href="admin.html">Back to dashboard</a></h2>
+
+            <nav class="lv-tabs" aria-label="Filter by status">
+                <a class="lv-tab is-active" href="leaves.html" aria-current="page">All <b>7</b></a>
+                <a class="lv-tab" href="leaves.html?status=pending">Pending <b>3</b></a>
+                <a class="lv-tab" href="leaves.html?status=approved">Approved <b>3</b></a>
+                <a class="lv-tab" href="leaves.html?status=rejected">Rejected <b>1</b></a>
+            </nav>
+
+            <div class="ad-table-scroll">
+                <table class="ad-table lv-table">
+                    <thead>
+                        <tr>
+                            <th>Employee</th>
+                            <th>Type</th>
+                            <th>Dates</th>
+                            <th>Days</th>
+                            <th>Reason</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><div class="emp-person"><span class="emp-avatar emp-avatar--c">ZS</span><div><a class="lv-name" href="employees.html">Zainab Siddiqui</a><small>Finance</small></div></div></td>
+                            <td><span class="lv-type lv-type--sick">Sick</span></td>
+                            <td>28 Oct – 29 Oct</td>
+                            <td>2</td>
+                            <td>Medical appointment</td>
+                            <td><span class="ad-badge ad-badge--late">Pending</span></td>
+                            <td><form class="lv-actions" action="leaves.html" method="post"><input type="hidden" name="request" value="LV-101"><button class="ad-btn emp-btn-sm" type="submit" name="decision" value="approve">Approve</button><button class="ad-btn emp-btn-sm lv-btn-reject" type="submit" name="decision" value="reject">Reject</button></form></td>
+                        </tr>
+                        <tr>
+                            <td><div class="emp-person"><span class="emp-avatar emp-avatar--d">OF</span><div><a class="lv-name" href="employees.html">Omar Farooq</a><small>Support</small></div></div></td>
+                            <td><span class="lv-type lv-type--annual">Annual</span></td>
+                            <td>02 Nov – 06 Nov</td>
+                            <td>5</td>
+                            <td>Family trip</td>
+                            <td><span class="ad-badge ad-badge--late">Pending</span></td>
+                            <td><form class="lv-actions" action="leaves.html" method="post"><input type="hidden" name="request" value="LV-102"><button class="ad-btn emp-btn-sm" type="submit" name="decision" value="approve">Approve</button><button class="ad-btn emp-btn-sm lv-btn-reject" type="submit" name="decision" value="reject">Reject</button></form></td>
+                        </tr>
+                        <tr>
+                            <td><div class="emp-person"><span class="emp-avatar emp-avatar--a">HT</span><div><a class="lv-name" href="employees.html">Hira Tariq</a><small>Design</small></div></div></td>
+                            <td><span class="lv-type lv-type--casual">Casual</span></td>
+                            <td>30 Oct</td>
+                            <td>1</td>
+                            <td>Personal errand</td>
+                            <td><span class="ad-badge ad-badge--late">Pending</span></td>
+                            <td><form class="lv-actions" action="leaves.html" method="post"><input type="hidden" name="request" value="LV-103"><button class="ad-btn emp-btn-sm" type="submit" name="decision" value="approve">Approve</button><button class="ad-btn emp-btn-sm lv-btn-reject" type="submit" name="decision" value="reject">Reject</button></form></td>
+                        </tr>
+                        <tr>
+                            <td><div class="emp-person"><span class="emp-avatar emp-avatar--d">HA</span><div><a class="lv-name" href="employees.html">Hamza Ali</a><small>Design</small></div></div></td>
+                            <td><span class="lv-type lv-type--annual">Annual</span></td>
+                            <td>24 Oct – 28 Oct</td>
+                            <td>5</td>
+                            <td>Out of town</td>
+                            <td><span class="ad-badge ad-badge--present">Approved</span></td>
+                            <td><span class="lv-done">—</span></td>
+                        </tr>
+                        <tr>
+                            <td><div class="emp-person"><span class="emp-avatar emp-avatar--d">OF</span><div><a class="lv-name" href="employees.html">Omar Farooq</a><small>Support</small></div></div></td>
+                            <td><span class="lv-type lv-type--casual">Casual</span></td>
+                            <td>25 Oct – 26 Oct</td>
+                            <td>2</td>
+                            <td>Family event</td>
+                            <td><span class="ad-badge ad-badge--present">Approved</span></td>
+                            <td><span class="lv-done">—</span></td>
+                        </tr>
+                        <tr>
+                            <td><div class="emp-person"><span class="emp-avatar emp-avatar--b">BA</span><div><a class="lv-name" href="employees.html">Bilal Ahmed</a><small>Sales</small></div></div></td>
+                            <td><span class="lv-type lv-type--sick">Sick</span></td>
+                            <td>20 Oct</td>
+                            <td>1</td>
+                            <td>Fever</td>
+                            <td><span class="ad-badge ad-badge--none">Rejected</span></td>
+                            <td><span class="lv-done">—</span></td>
+                        </tr>
+                        <tr>
+                            <td><div class="emp-person"><span class="emp-avatar emp-avatar--a">AK</span><div><a class="lv-name" href="employees.html">Ayesha Khan</a><small>Engineering</small></div></div></td>
+                            <td><span class="lv-type lv-type--annual">Annual</span></td>
+                            <td>10 Oct – 14 Oct</td>
+                            <td>5</td>
+                            <td>Vacation</td>
+                            <td><span class="ad-badge ad-badge--present">Approved</span></td>
+                            <td><span class="lv-done">—</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="emp-pager">
+                <span>Showing <b>7</b> of 17 requests</span>
+                <div class="emp-pages">
+                    <button class="ad-btn ad-btn--light emp-btn-sm" type="button" disabled>Previous</button>
+                    <button class="ad-btn emp-btn-sm" type="button">1</button>
+                    <button class="ad-btn ad-btn--light emp-btn-sm" type="button">2</button>
+                    <button class="ad-btn ad-btn--light emp-btn-sm" type="button">3</button>
+                    <button class="ad-btn ad-btn--light emp-btn-sm" type="button">Next</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="ad-grid lv-grid">
+            <section class="ad-panel">
+                <h2 class="ad-panel-title">Leave used this year <span class="ad-note">company total</span></h2>
+                <ul class="lv-meters">
+                    <li>
+                        <div class="lv-meter-top"><span>Annual</span><b>38 / 96 days</b></div>
+                        <div class="lv-meter"><i class="lv-meter-bar lv-type--annual" style="width:40%"></i></div>
+                    </li>
+                    <li>
+                        <div class="lv-meter-top"><span>Sick</span><b>14 / 48 days</b></div>
+                        <div class="lv-meter"><i class="lv-meter-bar lv-type--sick" style="width:29%"></i></div>
+                    </li>
+                    <li>
+                        <div class="lv-meter-top"><span>Casual</span><b>9 / 36 days</b></div>
+                        <div class="lv-meter"><i class="lv-meter-bar lv-type--casual" style="width:25%"></i></div>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="ad-panel">
+                <h2 class="ad-panel-title">On leave today <a href="employees.html">View employees</a></h2>
+                <ul class="ad-list">
+                    <li><a class="lv-name" href="employees.html">Hamza Ali</a><span>Annual leave · back 29 Oct</span></li>
+                    <li><a class="lv-name" href="employees.html">Omar Farooq</a><span>Casual leave · back 27 Oct</span></li>
+                    <li><a class="lv-name" href="employees.html">Zainab Siddiqui</a><span>Sick leave · back 26 Oct</span></li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <!-- Add leave request -->
+    <div class="ad-dialog emp-dialog" id="lvPopover" popover>
+        <form action="leaves.html" method="post">
+            <h2>Add leave request</h2>
+            <div class="emp-form-grid">
+                <div class="emp-full">
+                    <label for="lvEmp">Employee</label>
+                    <select class="ad-field emp-select" id="lvEmp" name="employee" required>
+                        <option>Ayesha Khan</option><option>Bilal Ahmed</option><option>Sara Malik</option><option>Hamza Ali</option><option>Fatima Noor</option><option>Usman Raza</option><option>Zainab Siddiqui</option><option>Omar Farooq</option><option>Hira Tariq</option>
+                    </select>
+                </div>
+                <div class="emp-full">
+                    <label for="lvType">Leave type</label>
+                    <select class="ad-field emp-select" id="lvType" name="type" required>
+                        <option>Annual</option>
+                        <option>Sick</option>
+                        <option>Casual</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="lvFrom">From</label>
+                    <input class="ad-field" type="date" id="lvFrom" name="from" required>
+                </div>
+                <div>
+                    <label for="lvTo">To</label>
+                    <input class="ad-field" type="date" id="lvTo" name="to" required>
+                </div>
+                <div class="emp-full">
+                    <label for="lvWhy">Reason</label>
+                    <input class="ad-field" type="text" id="lvWhy" name="reason" required>
+                </div>
+            </div>
+            <div class="ad-form-row">
+                <button class="ad-btn ad-btn--light" type="button" popovertarget="lvPopover"
+                    popovertargetaction="hide">Cancel</button>
+                <button class="ad-btn" type="submit">Save request</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Change password -->
+    <div class="ad-dialog" id="pwPopover" popover>
+        <form action="#" method="post">
+            <h2>Change password</h2>
+            <label for="pwOld">Current password</label>
+            <input class="ad-field" type="password" id="pwOld" required>
+            <label for="pwNew">New password (min 4 characters)</label>
+            <input class="ad-field" type="password" id="pwNew" minlength="4" required>
+            <div class="ad-form-row">
+                <button class="ad-btn ad-btn--light" type="button" popovertarget="pwPopover"
+                    popovertargetaction="hide">Cancel</button>
+                <button class="ad-btn" type="submit">Save password</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
